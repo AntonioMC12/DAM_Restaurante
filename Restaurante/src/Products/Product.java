@@ -39,7 +39,7 @@ public abstract class Product implements productInterfaces.IProduct {
   public double getPrice() {
     return price;
   }
-#
+
   public boolean isForCeliac() {
 
     boolean result = false;
