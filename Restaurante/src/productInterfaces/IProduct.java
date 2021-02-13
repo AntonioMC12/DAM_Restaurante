@@ -13,6 +13,22 @@ public interface IProduct {
   public List<IProduct> getBundlePack();
   
   /**
+   * Función que nos permite añadir productos a la lista de los bundle packs
+   * 
+   * @param producto
+   * @return true si lo añade, false si no.
+   */
+  public boolean addProductBundlePack(IProduct producto);
+  
+  /**
+   * Funcion que borra un producto del BundlePack si lo encuentra.
+   * 
+   * @param name
+   * @return true si lo borra, false si no.
+   */
+  public boolean deleteProductBundlePack(String name);
+  
+  /**
    * Devuelve el nombre de un producto
    * 
    * @return nombre del producto
@@ -33,6 +49,7 @@ public interface IProduct {
    * @return True si es para celiacos, False si no.
    */
   public boolean getIsForCeliac();
+  
   
   /**
    * Sobreescribir el equals para que busque por nombre

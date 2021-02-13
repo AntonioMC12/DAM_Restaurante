@@ -52,7 +52,11 @@ public abstract class Product implements productInterfaces.IProduct {
   }
 
   public abstract List<IProduct> getBundlePack();
-
+  
+  public abstract boolean addProductBundlePack(IProduct producto);
+  
+  public abstract boolean deleteProductBundlePack(String name);
+  
   @Override
   public boolean equals(Object o) {
     boolean result = false;
