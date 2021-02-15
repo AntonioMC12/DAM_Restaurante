@@ -9,6 +9,7 @@ import java.util.List;
 import productInterfaces.IDrink;
 import productInterfaces.IFood;
 import productInterfaces.IProduct;
+import productInterfaces.IRepositoryProduct;
 
 /**
  * En esta clase guardaremos una lista con los productos que hay en el
@@ -18,7 +19,7 @@ import productInterfaces.IProduct;
  * @author ertonix12
  *
  */
-public class RepositoryProduct implements productInterfaces.IRepositoryProduct {
+public class RepositoryProduct implements IRepositoryProduct {
 
   private List<IProduct> products;
 
@@ -33,12 +34,12 @@ public class RepositoryProduct implements productInterfaces.IRepositoryProduct {
   }
 
   @Override
-  public List<IProduct> getAllDrinks() {
+  public List<IDrink> getAllDrinks() {
 
-    List<IProduct> getAllDrinks = new ArrayList<>();
+    List<IDrink> getAllDrinks = new ArrayList<>();
     for (IProduct iProduct : this.products) {
       if (iProduct instanceof Drink) {
-        getAllDrinks.add(iProduct);
+        getAllDrinks.add((IDrink) iProduct);
       }
     }
 
@@ -46,12 +47,12 @@ public class RepositoryProduct implements productInterfaces.IRepositoryProduct {
   }
 
   @Override
-  public List<IProduct> getAllFoods() {
-    
-    List<IProduct> getAllFoods = new ArrayList<>();
+  public List<IFood> getAllFoods() {
+
+    List<IFood> getAllFoods = new ArrayList<>();
     for (IProduct iProduct : this.products) {
       if (iProduct instanceof Food) {
-        getAllFoods.add(iProduct);
+        getAllFoods.add((IFood) iProduct);
       }
     }
 
@@ -59,47 +60,81 @@ public class RepositoryProduct implements productInterfaces.IRepositoryProduct {
   }
 
   @Override
-  public List<IProduct> getAllNoAlcoholicDrinks() {
-    
-    List<IProduct> getAllNoAlcoholicDrinks = getAllDrinks();
-    for (IProduct iProduct : getAllNoAlcoholicDrinks) {
-      if(null);
+  public List<IDrink> getAllNoAlcoholicDrinks() {
+
+    List<IDrink> getAllNoAlcoholicDrinks = getAllDrinks();
+    for (IDrink iDrink : getAllNoAlcoholicDrinks) {
+      if (!iDrink.isAlcoholic()) {
+        getAllNoAlcoholicDrinks.add(iDrink);
+      }
     }
+
+    return getAllNoAlcoholicDrinks;
   }
 
   @Override
-  public List<IProduct> getAllAlcoholicsDrinks() {
-    // TODO Auto-generated method stub
-    return null;
+  public List<IDrink> getAllAlcoholicsDrinks() {
+
+    List<IDrink> getAllNoAlcoholicDrinks = getAllDrinks();
+    for (IDrink iDrink : getAllNoAlcoholicDrinks) {
+      if (iDrink.isAlcoholic()) {
+        getAllNoAlcoholicDrinks.add(iDrink);
+      }
+    }
+
+    return getAllNoAlcoholicDrinks;
   }
 
   @Override
-  public List<IProduct> getAllForVeganFood() {
-    // TODO Auto-generated method stub
-    return null;
+  public List<IFood> getAllForVeganFood() {
+
+    List<IFood> getAllForVeganFood = getAllFoods();
+    for (IFood iFood : getAllForVeganFood) {
+      if (iFood.isForVegans()) {
+        getAllForVeganFood.add(iFood);
+      }
+    }
+
+    return getAllForVeganFood;
   }
 
   @Override
   public List<IProduct> getBundleProducts(IProduct Producto) {
-    // TODO Auto-generated method stub
-    return null;
+
+    return Producto.getBundlePack();
   }
 
   @Override
   public IProduct searchProduct(String name) {
-    // TODO Auto-generated method stub
+
+    for (IProduct iProduct : this.products) {
+      if(iProduct.getName().equals(name)) {
+        return iProduct;
+      }
+
+    }
     return null;
   }
 
   @Override
   public IDrink searchDrinks(String name) {
-    // TODO Auto-generated method stub
+    
+    for (IProduct iProduct : this.products) {
+      if(iProduct.getName().equals(name)) {
+        return (Drink)iProduct;
+      }
+    }
     return null;
   }
 
   @Override
   public IFood searchFoods(String name) {
-    // TODO Auto-generated method stub
+    
+    for (IProduct iProduct : this.products) {
+      if(iProduct.getName().equals(name)) {
+        return (Food)iProduct;
+      }
+    }
     return null;
   }
 

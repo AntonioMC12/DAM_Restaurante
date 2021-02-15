@@ -6,13 +6,14 @@ package Products;
 import java.util.ArrayList;
 import java.util.List;
 
+import productInterfaces.IDrink;
 import productInterfaces.IProduct;
 
 /**
  * @author ertonix12
  *
  */
-public class Drink extends Product {
+public class Drink extends Product implements IDrink {
 
   private boolean alcoholic;
   private List<Product> bundlePack;

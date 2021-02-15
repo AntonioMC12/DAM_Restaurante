@@ -6,13 +6,14 @@ package Products;
 import java.util.ArrayList;
 import java.util.List;
 
+import productInterfaces.IFood;
 import productInterfaces.IProduct;
 
 /**
  * @author ertonix12
  *
  */
-public class Food extends Product {
+public class Food extends Product implements IFood {
 
   private boolean forVegans;
   private List<Product> bundlePack;

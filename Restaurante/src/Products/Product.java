@@ -11,7 +11,7 @@ import productInterfaces.IProduct;
  * @author Abepuoh
  *
  */
-public abstract class Product implements productInterfaces.IProduct {
+public abstract class Product implements IProduct {
 
   private static int ID_COUNTER = 0; // CHECK
   private int id;
