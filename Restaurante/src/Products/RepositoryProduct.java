@@ -3,6 +3,7 @@
  */
 package Products;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import productInterfaces.IDrink;
@@ -10,18 +11,16 @@ import productInterfaces.IFood;
 import productInterfaces.IProduct;
 
 /**
- * En esta clase guardaremos una lista con los productos que hay en el 
- * restaurante, con una serie de métodos para el posible funcionamiento
- * del programa
+ * En esta clase guardaremos una lista con los productos que hay en el
+ * restaurante, con una serie de métodos para el posible funcionamiento del
+ * programa
  * 
  * @author ertonix12
  *
  */
 public class RepositoryProduct implements productInterfaces.IRepositoryProduct {
-  
+
   private List<IProduct> products;
-  
-  
 
   public RepositoryProduct(List<IProduct> products) {
     super();
@@ -30,26 +29,42 @@ public class RepositoryProduct implements productInterfaces.IRepositoryProduct {
 
   @Override
   public List<IProduct> getAllProducts() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.products;
   }
 
   @Override
   public List<IProduct> getAllDrinks() {
-    // TODO Auto-generated method stub
-    return null;
+
+    List<IProduct> getAllDrinks = new ArrayList<>();
+    for (IProduct iProduct : this.products) {
+      if (iProduct instanceof Drink) {
+        getAllDrinks.add(iProduct);
+      }
+    }
+
+    return getAllDrinks;
   }
 
   @Override
   public List<IProduct> getAllFoods() {
-    // TODO Auto-generated method stub
-    return null;
+    
+    List<IProduct> getAllFoods = new ArrayList<>();
+    for (IProduct iProduct : this.products) {
+      if (iProduct instanceof Food) {
+        getAllFoods.add(iProduct);
+      }
+    }
+
+    return getAllFoods;
   }
 
   @Override
   public List<IProduct> getAllNoAlcoholicDrinks() {
-    // TODO Auto-generated method stub
-    return null;
+    
+    List<IProduct> getAllNoAlcoholicDrinks = getAllDrinks();
+    for (IProduct iProduct : getAllNoAlcoholicDrinks) {
+      if(null);
+    }
   }
 
   @Override
@@ -92,6 +107,5 @@ public class RepositoryProduct implements productInterfaces.IRepositoryProduct {
   public String toString() {
     return "RepositoryProduct [products=" + products + "]";
   }
-  
-  
+
 }
