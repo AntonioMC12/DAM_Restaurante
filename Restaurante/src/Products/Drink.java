@@ -4,21 +4,22 @@
 package Products;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import productInterfaces.IDrink;
 import productInterfaces.IProduct;
 
 /**
- * @author ertonix12
+ * @author abepouh
  *
  */
 public class Drink extends Product implements IDrink {
 
   private boolean alcoholic;
-  private List<Product> bundlePack;
+  private List<IProduct> bundlePack;
 
-  public Drink(String name, double price, boolean alcoholic, List<Product> bundlePack) {
+  public Drink(String name, double price, boolean alcoholic, List<IProduct> bundlePack) {
     super(name, price);
     this.alcoholic = alcoholic;
     this.bundlePack = bundlePack;
@@ -26,43 +27,50 @@ public class Drink extends Product implements IDrink {
 
   public Drink() {
     super();
-    List<Product> bundleProducts = new ArrayList<Product>();
+    List<IProduct> bundleProducts = new ArrayList<IProduct>();
     this.alcoholic = false;
     this.bundlePack = bundleProducts;
   }
 
+  @Override
   public boolean isAlcoholic() {
-    return alcoholic;
-  }
 
-  @Override
-  public boolean getIsForCeliac() {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-  @Override
-  public boolean equeals(IProduct producto) {
-    // TODO Auto-generated method stub
-    return false;
+    return this.alcoholic;
   }
 
   @Override
   public List<IProduct> getBundlePack() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.bundlePack;
   }
 
   @Override
   public boolean addProductBundlePack(IProduct producto) {
-    // TODO Auto-generated method stub
-    return false;
+    boolean result = false;
+    if (!bundlePack.contains(producto)) {
+      bundlePack.add(producto);
+      result = true;
+    }
+    return result;
   }
 
   @Override
   public boolean deleteProductBundlePack(String name) {
-    // TODO Auto-generated method stub
-    return false;
+    boolean result = false;
+    if (bundlePack.size() != 0) {
+      for (Iterator<IProduct> iterator = bundlePack.iterator(); iterator.hasNext();) {
+        IProduct iProduct = (IProduct) iterator.next();
+        if (iProduct.getName().equals(name)) {
+          iterator.remove();
+          result = true;
+        }
+      }
+    }
+    return result;
   }
 
+  @Override
+  public boolean equeals(IProduct producto) {
+
+    return super.equals(producto);
+  }
 }

@@ -48,7 +48,7 @@ public interface IProduct {
    * 
    * @return True si es para celiacos, False si no.
    */
-  public boolean getIsForCeliac();
+  public boolean isForCeliac();
   
   
   /**

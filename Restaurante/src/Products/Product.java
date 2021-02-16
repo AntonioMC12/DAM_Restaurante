@@ -19,10 +19,6 @@ public abstract class Product implements IProduct {
   private double price;
   private boolean forCeliac;
 
-  public Product() {
-    this("Desconocido", 00.00);
-  }
-
   public Product(String name, double price) {
     super();
     this.name = name;
@@ -30,6 +26,14 @@ public abstract class Product implements IProduct {
     this.id = ID_COUNTER;
     this.forCeliac = false; // CHECK
     ID_COUNTER++;
+  }
+
+  public Product(String name) {
+    this(name, 00.00);
+  }
+
+  public Product() {
+    this("Desconocido", 00.00);
   }
 
   public String getName() {
@@ -52,24 +56,23 @@ public abstract class Product implements IProduct {
   }
 
   public abstract List<IProduct> getBundlePack();
-  
+
   public abstract boolean addProductBundlePack(IProduct producto);
-  
+
   public abstract boolean deleteProductBundlePack(String name);
-  
+
   @Override
-  public boolean equals(Object o) {
-    boolean result = false;
-    if (this == o) {
-      result = true;
-    } else if (o instanceof Product) {
-      Product a = (Product) o;
-      String n = a.getName();
-      if (this.name.equals(n)) {
-        result = true;
-      }
-    }
-    return result;
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Product other = (Product) obj;
+    if (id != other.id)
+      return false;
+    return true;
   }
 
   @Override
