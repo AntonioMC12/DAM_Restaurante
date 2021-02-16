@@ -1,4 +1,4 @@
-package productInterfaces;
+package Interfaces;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import java.util.List;
  * @author Miguel Angel
  *
  */
-public interface IFood {
+public interface IFood extends IProduct{
 	
 	public boolean isForVegans();
 

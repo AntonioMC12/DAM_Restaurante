@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import productInterfaces.IDrink;
-import productInterfaces.IProduct;
+import Interfaces.IDrink;
+import Interfaces.IProduct;
 
 /**
  * @author abepouh

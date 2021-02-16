@@ -6,10 +6,10 @@ package Products;
 import java.util.ArrayList;
 import java.util.List;
 
-import productInterfaces.IDrink;
-import productInterfaces.IFood;
-import productInterfaces.IProduct;
-import productInterfaces.IRepositoryProduct;
+import Interfaces.IDrink;
+import Interfaces.IFood;
+import Interfaces.IProduct;
+import Interfaces.IRepositoryProduct;
 
 /**
  * En esta clase guardaremos una lista con los productos que hay en el

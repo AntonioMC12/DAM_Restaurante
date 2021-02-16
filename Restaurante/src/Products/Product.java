@@ -2,7 +2,7 @@ package Products;
 
 import java.util.List;
 
-import productInterfaces.IProduct;
+import Interfaces.IProduct;
 
 /**
  * En esta clase guardaremos todos los datos de los producto de los cuales

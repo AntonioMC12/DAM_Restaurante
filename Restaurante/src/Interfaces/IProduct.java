@@ -1,4 +1,4 @@
-package productInterfaces;
+package Interfaces;
 
 import java.util.List;
 
