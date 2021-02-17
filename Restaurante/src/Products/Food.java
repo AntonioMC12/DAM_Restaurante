@@ -44,7 +44,7 @@ public class Food extends Product implements IFood {
   @Override
   public boolean addProductBundlePack(IProduct producto) {
     boolean result = false;
-    if (!bundlePack.contains(producto)) {
+    if (producto!= null &&!bundlePack.contains(producto)) {
       bundlePack.add(producto);
       result = true;
     }

@@ -1,6 +1,7 @@
 package Clients;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import Interfaces.IClient;
@@ -81,8 +82,16 @@ public class RepositoryClients implements IRepositoryClients {
 
   @Override
   public boolean deleteClient(String dni) {
-
-    return false;
+	  boolean result = false;
+	    if (clients.size() != 0) {
+	      for (Iterator<IClient> iterator = clients.iterator(); iterator.hasNext();) {
+	        IClient iClient = (IClient) iterator.next();
+	        if (iClient.getName().equals(dni)) {
+	          iterator.remove();
+	          result = true;
+	        }
+	      }
+	    }
+		return result;
   }
-
 }
