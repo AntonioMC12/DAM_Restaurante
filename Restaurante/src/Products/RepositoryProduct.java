@@ -1,6 +1,3 @@
-/**
- * 
- */
 package Products;
 
 import java.util.ArrayList;
