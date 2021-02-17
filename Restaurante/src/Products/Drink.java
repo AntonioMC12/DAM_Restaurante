@@ -12,48 +12,47 @@ import productInterfaces.IProduct;
  * @author ertonix12
  *
  */
-public class Food extends Product {
+public  class Drink extends Product {
 
-  private boolean forVegans;
+  private boolean alcoholic;
   private List<IProduct> bundlePack;
 
-  public Food(String name, double price, boolean forVegans, List<IProduct> bundlePack) {
+  public Drink(String name, double price, boolean alcoholic,List<IProduct> bundlePack) {
     super(name, price);
-    this.forVegans = forVegans;
+    this.alcoholic = alcoholic;
     this.bundlePack = bundlePack;
   }
 
-  public Food() {
+  public Drink() {
     super();
     List<IProduct> bundleProducts = new ArrayList<IProduct>();
-    this.forVegans = false;
+    this.alcoholic = false;
     this.bundlePack = bundleProducts;
   }
 
-  public boolean isForVegans() {
-    return forVegans;
-  }
-
   @Override
-  public boolean getIsForCeliac() {
-	  return this.isForCeliac();
+  public boolean IsAlcoholic() {
+	  boolean result=false;
+	    if(this.IsAlcoholic()==true) {
+	    	result=true;
+	    }
+	    return result;
   }
 
   @Override
   public List<IProduct> getBundlePack() {
-	 return this.bundlePack;
+	return this.bundlePack;
   }
 
   @Override
   public boolean addProductBundlePack(IProduct producto) {
-	  boolean result=false;
+	boolean result=false;
 		if(!bundlePack.contains(producto)) {
 			bundlePack.add(producto);
-			result = true;
+			result=true;
 		}
-		return result;
-
-	}
+	return result;
+  }
 
   @Override
   public boolean deleteProductBundlePack(String name) {
@@ -68,10 +67,8 @@ public class Food extends Product {
  	  }
  	  return result;
   }
-
-@Override
-public boolean IsAlcoholic() {
-	// TODO Auto-generated method stub
-	return false;
-}
+  @Override
+  public boolean getIsForCeliac() {
+	  return super.isForCeliac();
+  }
 }

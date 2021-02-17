@@ -11,7 +11,7 @@ import productInterfaces.IProduct;
  * @author Abepuoh
  *
  */
-public abstract class Product implements productInterfaces.IProduct {
+public abstract class Product implements IProduct {
 
   private static int ID_COUNTER = 0; // CHECK
   private int id;
@@ -28,7 +28,7 @@ public abstract class Product implements productInterfaces.IProduct {
     this.name = name;
     this.price = price;
     this.id = ID_COUNTER;
-    this.forCeliac = false; // CHECK
+    this.forCeliac = false; 
     ID_COUNTER++;
   }
 
@@ -39,7 +39,7 @@ public abstract class Product implements productInterfaces.IProduct {
   public double getPrice() {
     return price;
   }
-#
+
   public boolean isForCeliac() {
 
     boolean result = false;
@@ -52,7 +52,11 @@ public abstract class Product implements productInterfaces.IProduct {
   }
 
   public abstract List<IProduct> getBundlePack();
-
+  
+  public abstract boolean addProductBundlePack(IProduct producto);
+  
+  public abstract boolean deleteProductBundlePack(String name);
+  
   @Override
   public boolean equals(Object o) {
     boolean result = false;

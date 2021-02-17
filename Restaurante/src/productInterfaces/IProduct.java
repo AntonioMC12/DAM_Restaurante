@@ -2,6 +2,8 @@ package productInterfaces;
 
 import java.util.List;
 
+import Products.Product;
+
 public interface IProduct {
   
   /**
@@ -11,6 +13,22 @@ public interface IProduct {
    * @return ArrayList de Product
    */
   public List<IProduct> getBundlePack();
+  
+  /**
+   * Función que nos permite añadir productos a la lista de los bundle packs
+   * 
+   * @param producto
+   * @return true si lo añade, false si no.
+   */
+  public boolean addProductBundlePack(IProduct producto);
+  
+  /**
+   * Funcion que borra un producto del BundlePack si lo encuentra.
+   * 
+   * @param name
+   * @return true si lo borra, false si no.
+   */
+  public boolean deleteProductBundlePack(String name);
   
   /**
    * Devuelve el nombre de un producto
@@ -34,11 +52,19 @@ public interface IProduct {
    */
   public boolean getIsForCeliac();
   
-  /**
+   /**
    * Sobreescribir el equals para que busque por nombre
    * 
    * @param producto
    * @return true si el igual, false si no.
    */
-  public boolean equeals(IProduct producto);
+  //public boolean equeals(IProduct producto);
+  
+  /**
+   * Booleano que si devuelve True es una bebida alcoholica y si 
+   * devuelve False no lo es.
+   * 
+   * @return True si es alcoholica, False si no.
+   */
+  public boolean IsAlcoholic();
 }
