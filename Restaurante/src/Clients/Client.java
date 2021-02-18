@@ -1,12 +1,14 @@
 package Clients;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Interfaces.IClient;
 import Interfaces.IOrder;
+//import Products.Product;
 
 /**
- * Clase principal para la cual heredamos de la clase persona la usaremos para 
+ * Clase principal para la cual heredamos de la clase persona la usaremos para
  * todas las operaciones del repositorio de clientes.
  * 
  * @author Abepuoh
@@ -25,7 +27,13 @@ public class Client extends Person implements IClient {
   }
 
   public Client(String dni) {
-    this(dni, "", 0, null, null, 0);
+    super(dni, "", 0);
+    List<String> address1 = new ArrayList<>();
+    List<IOrder> orders1 = new ArrayList<>();
+    this.address = address1;
+    this.orders = orders1;
+    this.points = 0;
+
   }
 
   @Override
@@ -64,7 +72,9 @@ public class Client extends Person implements IClient {
   @Override
   public boolean addPoints(int puntos) {
     boolean addPoints = false;
-    this.points += puntos;
+    if (puntos > 0) {
+      this.points += puntos;
+    }
     return addPoints;
   }
 
