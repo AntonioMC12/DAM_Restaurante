@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Clients.Client;
+import Interfaces.IDrink;
 import Interfaces.IOrder;
 import Products.Product;
 
@@ -19,18 +20,18 @@ public class Order implements IOrder{
 	
 	private List<Client>Clientes;
 	private List<Product>Productos;
-	private int total;
+	private double total;
 	private LocalDateTime hPago;
 	private String address;
 	private boolean delivered;
 	private boolean payed;
 	
-	public Order(List<Client> clientes, List<Product> productos, int total, LocalDateTime hPago, String address,
+	public Order(List<Client> clientes, List<Product> productos, double total, LocalDateTime hPago, String address,
 			boolean delivered, boolean payed) {
 		super();
 		Clientes = clientes;
 		Productos = productos;
-		this.total = getTotal();
+		this.total = total;
 		this.hPago = hPago;
 		this.address = address;
 		this.delivered = delivered;
@@ -92,13 +93,38 @@ public class Order implements IOrder{
 	}
 
 	@Override
-	public int getTotal() {
+	public double getTotal() {
 		int total = 0;
-		
 		if(Productos.size()>0 && Productos!=null) {
 			for (Product Product : Productos) {
 				total=total+(int)Product.getPrice();		}
 		}
 		return total;
+	}
+
+	@Override
+	public String getAdress() {
+		return this.address;
+	}
+
+	@Override
+	public Client getClient(String dni) {
+		return this.getClient(dni);
+	}
+
+	@Override
+	public List<Product> getProducts() {
+		return this.Productos;
+	}
+
+	@Override
+	public LocalDateTime getDate() {
+		return this.hPago;
+	}
+
+	@Override
+	public List<Client> getClients() {
+		return this.Clientes;
+		
 	}
 }
