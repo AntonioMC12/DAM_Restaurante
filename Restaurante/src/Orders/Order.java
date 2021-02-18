@@ -18,32 +18,32 @@ import Products.Product;
  */
 public class Order implements IOrder{
 	
-	private List<Client>Clientes;
+	private Client Cliente;
 	private List<Product>Productos;
 	private double total;
-	private LocalDateTime hPago;
+	private LocalDateTime fPago;
 	private String address;
 	private boolean delivered;
 	private boolean payed;
 	
-	public Order(List<Client> clientes, List<Product> productos, double total, LocalDateTime hPago, String address,
+	public Order(Client cliente, List<Product> productos, double total, LocalDateTime fPago, String address,
 			boolean delivered, boolean payed) {
 		super();
-		Clientes = clientes;
+		Cliente = cliente;
 		Productos = productos;
 		this.total = total;
-		this.hPago = hPago;
+		this.fPago = fPago;
 		this.address = address;
 		this.delivered = delivered;
 		this.payed = payed;
 	}
 	
-	public List<Client> getClientes() {
-		return Clientes;
+	public Client getClientes() {
+		return Cliente;
 	}
 
-	public void setClientes(List<Client> clientes) {
-		Clientes = clientes;
+	public void setClientes(Client clientes) {
+		Cliente = clientes;
 	}
 
 	public List<Product> getProductos() {
@@ -54,12 +54,8 @@ public class Order implements IOrder{
 		Productos = productos;
 	}
 
-	public LocalDateTime gethPago() {
-		return hPago;
-	}
-
-	public void sethPago(LocalDateTime hPago) {
-		this.hPago = hPago;
+	public LocalDateTime getfPago() {
+		return getfPago();
 	}
 
 	public String getAddress() {
@@ -68,18 +64,6 @@ public class Order implements IOrder{
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public void setTotal(int total) {
-		this.total = total;
-	}
-
-	public void setDelivered(boolean delivered) {
-		this.delivered = delivered;
-	}
-
-	public void setPayed(boolean payed) {
-		this.payed = payed;
 	}
 
 	@Override
@@ -109,7 +93,17 @@ public class Order implements IOrder{
 
 	@Override
 	public Client getClient(String dni) {
-		return this.getClient(dni);
+		
+		Client getClientByDni = null;
+		Client aux = new Client(dni);
+
+		    if (dni != null && this.Cliente != null) {
+		      if (this.Cliente.getDni().equals(aux.getDni())) {
+		    	  getClientByDni = aux;
+		      }
+		    }
+
+		    return getClientByDni;
 	}
 
 	@Override
@@ -119,12 +113,12 @@ public class Order implements IOrder{
 
 	@Override
 	public LocalDateTime getDate() {
-		return this.hPago;
+		return this.fPago;
 	}
 
 	@Override
-	public List<Client> getClients() {
-		return this.Clientes;
+	public Client getClient() {
 		
+		return this.Cliente;
 	}
 }

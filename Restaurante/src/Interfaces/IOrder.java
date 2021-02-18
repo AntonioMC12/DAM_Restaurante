@@ -13,7 +13,7 @@ public interface IOrder {
 	public double getTotal();
 	public String getAdress();
 	public Client getClient(String dni);
-	public List <Client> getClients();
+	public Client getClient();
 	public List<Product> getProducts();
 	public LocalDateTime getDate();
 	
