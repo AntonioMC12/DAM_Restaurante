@@ -105,7 +105,6 @@ public class Order implements IOrder{
 
 		    return getClientByDni;
 	}
-
 	@Override
 	public List<Product> getProducts() {
 		return this.Productos;
