@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface IDrink extends IProduct{
   
-	public boolean isAlcoholic();
+  public boolean isAlcoholic();
 	
   public List<IProduct> getBundlePack();
   
