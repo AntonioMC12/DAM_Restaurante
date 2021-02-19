@@ -18,15 +18,23 @@ import Interfaces.IRepositoryClients;
 public class RepositoryClients implements IRepositoryClients {
 
   private List<IClient> clients;
+  private static RepositoryClients createRepository;
 
-  public RepositoryClients(List<IClient> clients) {
+  private RepositoryClients(List<IClient> clients) {
     super();
     this.clients = clients;
   }
 
-  public RepositoryClients() {
+  private RepositoryClients() {
     List<IClient> clientes = new ArrayList<>();
     this.clients = clientes;
+  }
+  
+  public static RepositoryClients getInstanceRepositoryClient(List<IClient>clients) {
+	  if(createRepository==null) {
+		  createRepository=new RepositoryClients(clients);
+	  }
+	return createRepository;
   }
 
   @Override

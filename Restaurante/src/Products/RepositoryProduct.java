@@ -19,12 +19,21 @@ import Interfaces.IRepositoryProduct;
 public class RepositoryProduct implements IRepositoryProduct {
 
   private List<IProduct> products;
+  private static RepositoryProduct createRepository;
 
-  public RepositoryProduct(List<IProduct> products) {
+  private RepositoryProduct(List<IProduct> products) {
     super();
     this.products = products;
   }
-
+  
+  public RepositoryProduct instanceRepositoryProduct(List<IProduct> products) {
+	  
+	  if(createRepository == null) {
+		  createRepository = new RepositoryProduct (products);
+	  }
+	return createRepository;
+	  
+  }
   @Override
   public List<IProduct> getAllProducts() {
     return this.products;
