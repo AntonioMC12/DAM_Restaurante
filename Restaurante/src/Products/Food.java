@@ -10,10 +10,6 @@ import java.util.List;
 import Interfaces.IFood;
 import Interfaces.IProduct;
 
-/**
- * @author abepouh
- *
- */
 public class Food extends Product implements IFood {
 
   private boolean forVegans;

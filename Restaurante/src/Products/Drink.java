@@ -10,10 +10,6 @@ import java.util.List;
 import Interfaces.IDrink;
 import Interfaces.IProduct;
 
-/**
- * @author abepouh
- *
- */
 public class Drink extends Product implements IDrink {
 
   private boolean alcoholic;

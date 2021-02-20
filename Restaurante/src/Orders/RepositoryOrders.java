@@ -5,13 +5,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
+import Clients.RepositoryClients;
 import Interfaces.IClient;
 import Interfaces.IOrder;
 import Interfaces.IRepositoryOrders;
 
 public class RepositoryOrders implements IRepositoryOrders {
 
-  private List<IOrder> orders;
+
+  private static RepositoryOrders createRepository;
 
   public RepositoryOrders(List<IOrder> orders) {
     super();
@@ -22,6 +25,16 @@ public class RepositoryOrders implements IRepositoryOrders {
     List<IOrder> orders = new ArrayList<>();
     this.orders = orders;
   }
+
+    
+  public static RepositoryOrders getInstanceRepositoryOrders(List<IOrder>orders) {
+	  if(createRepository==null) {
+		  createRepository=new RepositoryOrders(orders);
+	  }
+	return createRepository;
+  }
+
+
 
   @Override
   public List<IOrder> getAllOrders() {
@@ -139,5 +152,4 @@ public class RepositoryOrders implements IRepositoryOrders {
     }    
     return getInputByDateTotal;
   }
-
 }
