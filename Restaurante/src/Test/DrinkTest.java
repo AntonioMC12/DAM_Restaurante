@@ -9,52 +9,71 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Interfaces.IProduct;
 import Products.Drink;
 import Products.Product;
 
 class DrinkTest {
-	
+
 	Drink drink;
-	
-	@BeforeEach
-	public void setUp() {
-		Drink drink1=new Drink("cola",2,false,null);
-		Drink drink2=new Drink("fanta",2,false,null);
-		Drink drink3=new Drink("BarceloCola",7,true,null);
-		Drink drink4=new Drink();
-	}
-	
+
 	@Test
 	public void completConstructorTest() {
-		assertEquals("cola",this.drink.getName());
-		assertEquals(2,this.drink.getPrice(),0);
+		assertEquals("cola", this.drink.getName());
+		assertEquals(2, this.drink.getPrice(), 0);
 		assertEquals(false, this.drink.isAlcoholic());
 	}
-	
+
 	@Test
 	public void defaultConstructorTest() {
+		List<IProduct> bebidas = new ArrayList<>();
+		bebidas.add(new Drink());
+		
 		assertEquals("Desconocido", this.drink.getName());
-		assertEquals(00.00,this.drink.getPrice(),0);
+		assertEquals(00.00, this.drink.getPrice(), 0);
 		assertEquals(true, this.drink.isAlcoholic());
 	}
-	
+
 	@Test
 	public void addProducBundlePackTest() {
-		assertTrue(drink.add(new Drink()));
+		boolean alcoholic;
+		List<IProduct> bundlePack;
+		String name;
+		double price;
+		List<IProduct> bebidas = new ArrayList<>();
+		bebidas.add(new Drink());
+		assertEquals(1, bebidas.size());
 	}
-	
+
 	@Test
 	public void deleteProductBundlePackTest() {
-		assertTrue(drink.remove(drink));
+		boolean alcoholic;
+		List<IProduct> bundlePack;
+		String name;
+		double price;
+		List<IProduct> bebidas = new ArrayList<>();
+		bebidas.add(new Drink());
+		assertEquals(1, bebidas.size());
+		
+		bebidas.remove(new Drink());
+		assertEquals(0, bebidas.size());
+
 	}
 	
 	@Test
 	public void isAlcoholicTest() {
-		assertFalse(this.drink.isAlcoholic());
-		assertTrue(this.drink3.isAlcoholic());
+		boolean alcoholic=true;
+		List<IProduct> bundlePack;
+		String name;
+		double price;
+		List<IProduct> bebidas = new ArrayList<>();
+		bebidas.add(new Drink("BarceloCola", 7, true, null));
 		
+		assertTrue();
+		
+
 	}
-	
+
 	@Test
 	public void getBundlePackTest() {
 		assertNull(this.drink3.getBundlePack());
