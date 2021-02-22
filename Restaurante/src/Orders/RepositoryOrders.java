@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
-import Clients.RepositoryClients;
+//import Clients.RepositoryClients;
 import Interfaces.IClient;
 import Interfaces.IOrder;
 import Interfaces.IRepositoryOrders;
@@ -15,6 +15,7 @@ public class RepositoryOrders implements IRepositoryOrders {
 
 
   private static RepositoryOrders createRepository;
+  private List<IOrder> orders;
 
   public RepositoryOrders(List<IOrder> orders) {
     super();

@@ -47,7 +47,8 @@ public class WelcomeMenu {
 		
 	}
 
-	public static int loginMenu() {
+	@SuppressWarnings("resource")
+  public static int loginMenu() {
 		Scanner sc=new Scanner(System.in);
 		int loginMenu = 0;
 		System.out.println("\r\n"
