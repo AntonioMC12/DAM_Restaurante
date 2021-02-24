@@ -13,8 +13,6 @@ import Interfaces.IProduct;
  */
 public abstract class Product implements IProduct {
 
-  private static int ID_COUNTER = 0; // CHECK
-  private int id;
   private String name;
   private double price;
   private boolean forCeliac;
@@ -22,12 +20,10 @@ public abstract class Product implements IProduct {
   public Product(String name, double price) {
     super();
     this.name = name;
-    this.price = price;
-    this.id = ID_COUNTER;
-    this.forCeliac = false; // CHECK
-    ID_COUNTER++;
-  }
+    this.price = price; 
+    this.forCeliac = false;
 
+  }
   public Product(String name) {
     this(name, 00.00);
   }
@@ -70,13 +66,13 @@ public abstract class Product implements IProduct {
     if (getClass() != obj.getClass())
       return false;
     Product other = (Product) obj;
-    if (id != other.id)
+    if (name != other.name)
       return false;
     return true;
   }
 
   @Override
   public String toString() {
-    return "Producto con id=" + id + ", nombre=" + name + ", precio=" + price + ", Es apto para celiacos =" + forCeliac;
+    return "Producto con nombre=" + name + ", precio=" + price + ", Es apto para celiacos =" + forCeliac;
   }
 }

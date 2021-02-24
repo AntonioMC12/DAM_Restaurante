@@ -11,62 +11,85 @@ import Interfaces.IDrink;
 import Interfaces.IProduct;
 
 public class Drink extends Product implements IDrink {
+	private int ID_COUNTER = 0;
+	private int id;
+	private boolean alcoholic;
+	private List<IProduct> bundlePack;
 
-  private boolean alcoholic;
-  private List<IProduct> bundlePack;
+	public Drink(String name, double price, boolean alcoholic, List<IProduct> bundlePack) {
+		super(name, price);
+		this.alcoholic = alcoholic;
+		this.id = ID_COUNTER;
+		this.bundlePack = bundlePack;
+		ID_COUNTER++;
+	}
 
-  public Drink(String name, double price, boolean alcoholic, List<IProduct> bundlePack) {
-    super(name, price);
-    this.alcoholic = alcoholic;
-    this.bundlePack = bundlePack;
-  }
+	public Drink() {
+		super();
+		List<IProduct> bundleProducts = new ArrayList<IProduct>();
+		this.alcoholic = false;
+		this.bundlePack = bundleProducts;
+	}
 
-  public Drink() {
-    super();
-    List<IProduct> bundleProducts = new ArrayList<IProduct>();
-    this.alcoholic = false;
-    this.bundlePack = bundleProducts;
-  }
+	public int getId() {
+		return id;
+	}
 
-  @Override
-  public boolean isAlcoholic() {
+	public  void setID_COUNTER(int iD_COUNTER) {
+		ID_COUNTER = iD_COUNTER;
+	}
 
-    return this.alcoholic;
-  }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-  @Override
-  public List<IProduct> getBundlePack() {
-    return this.bundlePack;
-  }
+	public void setAlcoholic(boolean alcoholic) {
+		this.alcoholic = alcoholic;
+	}
 
-  @Override
-  public boolean addProductBundlePack(IProduct producto) {
-    boolean result = false;
-    if (!bundlePack.contains(producto)) {
-      bundlePack.add(producto);
-      result = true;
-    }
-    return result;
-  }
+	public void setBundlePack(List<IProduct> bundlePack) {
+		this.bundlePack = bundlePack;
+	}
 
-  @Override
-  public boolean deleteProductBundlePack(String name) {
-    boolean result = false;
-    if (bundlePack.size() != 0) {
-      for (Iterator<IProduct> iterator = bundlePack.iterator(); iterator.hasNext();) {
-        IProduct iProduct = (IProduct) iterator.next();
-        if (iProduct.getName().equals(name)) {
-          iterator.remove();
-          result = true;
-        }
-      }
-    }
-    return result;
-  }
+	@Override
+	public boolean isAlcoholic() {
 
-  @Override
-  public boolean equeals(IProduct producto) {
+		return this.alcoholic;
+	}
 
-    return super.equals(producto);
-  }
+	@Override
+	public List<IProduct> getBundlePack() {
+		return this.bundlePack;
+	}
+
+	@Override
+	public boolean addProductBundlePack(IProduct producto) {
+		boolean result = false;
+		if (!bundlePack.contains(producto)) {
+			bundlePack.add(producto);
+			result = true;
+		}
+		return result;
+	}
+
+	@Override
+	public boolean deleteProductBundlePack(String name) {
+		boolean result = false;
+		if (bundlePack.size() != 0) {
+			for (Iterator<IProduct> iterator = bundlePack.iterator(); iterator.hasNext();) {
+				IProduct iProduct = (IProduct) iterator.next();
+				if (iProduct.getName().equals(name)) {
+					iterator.remove();
+					result = true;
+				}
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public boolean equeals(IProduct producto) {
+
+		return super.equals(producto);
+	}
 }
