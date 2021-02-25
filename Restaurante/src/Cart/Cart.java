@@ -42,7 +42,7 @@ public class Cart extends Order {
 		}
 		return result;
 	}
-	//check id
+
 	public boolean deleteFromCart(int id) {
 		boolean delete = false;
 		List<Product> dummy;
@@ -70,13 +70,16 @@ public class Cart extends Order {
 		}
 		return delete;
 	}
-
+	//MIRAR NO TERMINADO
 	public double calculeTotalPrice() {
 		double aux = 0;
 		List<Product> dummy;
 		if (products != null && products.size() > 0 && order != null) {
+			// creo dummy para guardar el order
 			dummy = order.getproduct();
+			//recorro dummy para ver los products.
 			for (IProduct iProduct : dummy) {
+				//si iProduct tiene bundle hace descuento 
 				if (iProduct.getBundlePack() != null) {
 					aux = iProduct.getPrice() * 0.1;
 				} else {
