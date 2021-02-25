@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import Clients.Client;
+import Clients.Person;
 import Interfaces.IProduct;
 import Orders.Order;
 import Products.Drink;
@@ -41,43 +42,49 @@ public class Cart extends Order {
 		}
 		return result;
 	}
-
-	// check
+	//check id
 	public boolean deleteFromCart(int id) {
-		Food dummy = new Food();
-		Drink dummy1 = new Drink();
-		dummy1.setID_COUNTER(id);
-		dummy.setID_COUNTER(id);
-		if (products != null && products.size() > 0 && products.contains(dummy.getId())) {
-			products.remove(dummy);
-			return true;
-		} else if (products != null && products.size() > 0 && products.contains(dummy1.getId())) {
-			products.remove(dummy1);
-			return true;
+		boolean delete = false;
+		List<Product> dummy;
+		dummy = order.getproduct();
+		for (Product iProduct : dummy) {
+			if (products != null && products.size() > 0 && iProduct.getId() == id) {
+				dummy.add(iProduct);
+				delete = true;
+				return delete;
+			}
 		}
-
-		return false;
+		return delete;
 	}
 
-	// check
 	public boolean deleteFromCart(String name) {
-		Food dummy = new Food(name, 0, isDelivered(), products);
-		Drink dummy1 = new Drink(name, 0, isDelivered(), products);
-		if (products != null && products.size() > 0 && products.contains(dummy.getName())) {
-			products.remove(dummy);
-			return true;
-		} else if (products != null && products.size() > 0 && products.contains(dummy1.getName())) {
-			products.remove(dummy1);
-			return true;
+		boolean delete = false;
+		List<Product> dummy;
+		dummy = order.getproduct();
+		for (IProduct iProduct : dummy) {
+			if (products != null && products.size() > 0 && iProduct.getName() == name) {
+				dummy.remove(iProduct);
+				delete = true;
+				return delete;
+			}
 		}
-
-		return false;
+		return delete;
 	}
 
 	public double calculeTotalPrice() {
-
-		return 0;
-
+		double aux = 0;
+		List<Product> dummy;
+		if (products != null && products.size() > 0 && order != null) {
+			dummy = order.getproduct();
+			for (IProduct iProduct : dummy) {
+				if (iProduct.getBundlePack() != null) {
+					aux = iProduct.getPrice() * 0.1;
+				} else {
+					aux = iProduct.getPrice();
+				}
+			}
+		}
+		return aux;
 	}
 
 	public boolean clearCart() {

@@ -11,17 +11,14 @@ import Interfaces.IDrink;
 import Interfaces.IProduct;
 
 public class Drink extends Product implements IDrink {
-	private int ID_COUNTER = 0;
-	private int id;
+
 	private boolean alcoholic;
 	private List<IProduct> bundlePack;
 
 	public Drink(String name, double price, boolean alcoholic, List<IProduct> bundlePack) {
 		super(name, price);
 		this.alcoholic = alcoholic;
-		this.id = ID_COUNTER;
 		this.bundlePack = bundlePack;
-		ID_COUNTER++;
 	}
 
 	public Drink() {
@@ -29,18 +26,6 @@ public class Drink extends Product implements IDrink {
 		List<IProduct> bundleProducts = new ArrayList<IProduct>();
 		this.alcoholic = false;
 		this.bundlePack = bundleProducts;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public  void setID_COUNTER(int iD_COUNTER) {
-		ID_COUNTER = iD_COUNTER;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public void setAlcoholic(boolean alcoholic) {

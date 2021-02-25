@@ -11,17 +11,14 @@ import Interfaces.IFood;
 import Interfaces.IProduct;
 
 public class Food extends Product implements IFood {
-	private static int ID_COUNTER = 0;
-	private int id;
+	
 	private boolean forVegans;
 	private List<IProduct> bundlePack;
 
 	public Food(String name, double price, boolean forVegans, List<IProduct> bundlePack) {
 		super(name, price);
 		this.forVegans = forVegans;
-		this.id = ID_COUNTER;
 		this.bundlePack = bundlePack;
-		ID_COUNTER++;
 	}
 
 	public Food() {
@@ -29,14 +26,6 @@ public class Food extends Product implements IFood {
 		List<IProduct> bundleProducts = new ArrayList<IProduct>();
 		this.forVegans = false;
 		this.bundlePack = bundleProducts;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setID_COUNTER(int iD_COUNTER) {
-		ID_COUNTER = iD_COUNTER;
 	}
 
 	public boolean isForVegans() {

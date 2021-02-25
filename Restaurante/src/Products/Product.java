@@ -1,5 +1,6 @@
 package Products;
 
+
 import java.util.List;
 
 import Interfaces.IProduct;
@@ -12,7 +13,9 @@ import Interfaces.IProduct;
  *
  */
 public abstract class Product implements IProduct {
-
+  
+  private static int ID_COUNTER = 0;
+  private int id;
   private String name;
   private double price;
   private boolean forCeliac;
@@ -21,8 +24,9 @@ public abstract class Product implements IProduct {
     super();
     this.name = name;
     this.price = price; 
+    this.id = ID_COUNTER;
     this.forCeliac = false;
-
+    ID_COUNTER++;
   }
   public Product(String name) {
     this(name, 00.00);
@@ -31,7 +35,13 @@ public abstract class Product implements IProduct {
   public Product() {
     this("Desconocido", 00.00);
   }
+  public int getId() {
+		return id;
+	}
 
+	public void setID_COUNTER(int iD_COUNTER) {
+		ID_COUNTER = iD_COUNTER;
+	}
   public String getName() {
     return name;
   }
