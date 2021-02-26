@@ -1,7 +1,5 @@
 package Menu;
 
-import java.util.Scanner;
-
 /**
  * Syso de inicio del programa.
  * 
