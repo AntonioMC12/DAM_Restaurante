@@ -16,4 +16,6 @@ public interface IFood extends IProduct{
   public boolean addProductBundlePack(IProduct producto);
   
   public boolean deleteProductBundlePack(String name);
+  
+  public void setIsForVegans();
 }

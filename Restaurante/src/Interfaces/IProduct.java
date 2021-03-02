@@ -58,4 +58,10 @@ public interface IProduct {
    * @return true si el igual, false si no.
    */
   public boolean equeals(IProduct producto);
+  
+  public void setName(String name);
+  
+  public void setPrice(double precio);
+  
+  public void setIsCeliac();
 }

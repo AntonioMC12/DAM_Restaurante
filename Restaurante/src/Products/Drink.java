@@ -28,7 +28,11 @@ public class Drink extends Product implements IDrink {
 		this.bundlePack = bundleProducts;
 	}
 
-	public void setAlcoholic(boolean alcoholic) {
+	public Drink(String nombre) {
+    super(nombre);
+  }
+
+  public void setAlcoholic(boolean alcoholic) {
 		this.alcoholic = alcoholic;
 	}
 
@@ -77,4 +81,14 @@ public class Drink extends Product implements IDrink {
 
 		return super.equals(producto);
 	}
+
+  @Override
+  public void setIsAlcoholic() {
+    if(this.alcoholic) {
+      this.alcoholic = false;
+    }else {
+      this.alcoholic = true;
+    }
+    
+  }
 }
