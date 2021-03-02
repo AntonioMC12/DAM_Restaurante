@@ -15,7 +15,6 @@ public class RepositoryOrders implements IRepositoryOrders {
 
   private List<IOrder> orders;
   private static RepositoryOrders createRepository;
-  private List<IOrder> orders;
 
   public RepositoryOrders(List<IOrder> orders) {
     super();
