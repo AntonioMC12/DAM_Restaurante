@@ -13,7 +13,7 @@ import Interfaces.IRepositoryOrders;
 
 public class RepositoryOrders implements IRepositoryOrders {
 
-
+  private List<IOrder> orders;
   private static RepositoryOrders createRepository;
   private List<IOrder> orders;
 
