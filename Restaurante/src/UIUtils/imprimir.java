@@ -8,9 +8,14 @@ import Interfaces.IProduct;
 public class imprimir {
 
   public static void printList(List<IProduct> lista) {
+    int count = 0;
     if (lista != null && lista.size() > 0) {
       for (IProduct object : lista) {
-        System.out.print(object);
+        if(count!=0) {
+          System.out.print(", ");
+        }
+        System.out.print(object.getName());
+        count++;
       }
     }
   }

@@ -7,8 +7,9 @@ import UIUtils.imprimir;
 import UIUtils.introducir;
 
 public class ProductController {
-
-  public void showProducts(List<IProduct> productos) {
+  
+  
+  public static void showProducts(List<IProduct> productos) {
     /*
      * SYSO EN ASCII "PRODUCTOS DISPONIBLES"
      * 
@@ -16,7 +17,7 @@ public class ProductController {
     imprimir.printList(productos);
   }
 
-  public void showBundlePack(Product producto) {
+  public static void showBundlePack(Product producto) {
     /*
      * SYSO EN ASCII "PRODUCTOS COMPATIBLES PARA OFERTA "
      * 
@@ -24,7 +25,7 @@ public class ProductController {
     imprimir.printList(producto.getBundlePack());
   }
 
-  public void modifyFood(RepositoryProduct repo, String nombre) {
+  public static void modifyFood(RepositoryProduct repo, String nombre) {
     /**
      * nombre precio forCeliac alcoholic bundlePack
      */
@@ -53,7 +54,7 @@ public class ProductController {
     }
   }
 
-  public void modifyDrink(RepositoryProduct repo, String nombre) {
+  public static void modifyDrink(RepositoryProduct repo, String nombre) {
     /**
      * nombre precio forCeliac alcoholic bundlePack
      */
@@ -80,9 +81,12 @@ public class ProductController {
         }
       }
     }
-
-    // añadir y quitar del bundle de food y drink
-
   }
+  
+  /*
+  public void addProductToBundle() {
+    System.out.println("Introduzca el producto que desea modificar");
+  }
+  */
 
 }

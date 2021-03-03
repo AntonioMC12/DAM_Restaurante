@@ -32,6 +32,10 @@ public class Food extends Product implements IFood {
 	  super(nombre);
     // TODO Auto-generated constructor stub
   }
+	
+	 public void setBundlePack(List<IProduct> bundlePack) {
+	    this.bundlePack = bundlePack;
+	  }
 
   public boolean isForVegans() {
 		return this.forVegans;
@@ -82,4 +86,13 @@ public class Food extends Product implements IFood {
       this.forVegans = true;
     }
   }
+
+  @Override
+  public String toString() {
+    return "Food [forVegans=" + forVegans + ", getId()=" + getId() + ", getName()=" + getName() + ", getPrice()="
+        + getPrice() + ", isForCeliac()=" + isForCeliac() + ", toString()=" + super.toString() + ", getClass()="
+        + getClass() + ", hashCode()=" + hashCode() + "]";
+  }
+  
+  
 }

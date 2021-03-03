@@ -26,7 +26,7 @@ public class RepositoryProduct implements IRepositoryProduct {
     this.products = products;
   }
   
-  public RepositoryProduct instanceRepositoryProduct(List<IProduct> products) {
+  public static RepositoryProduct instanceRepositoryProduct(List<IProduct> products) {
 	  
 	  if(createRepository == null) {
 		  createRepository = new RepositoryProduct (products);

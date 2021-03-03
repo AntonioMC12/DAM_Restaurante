@@ -3,6 +3,9 @@ package UIUtils;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import Menu.auxMenus;
+
+
 public class introducir {
   /**
    * Método que recoje un char por teclado y lo devuelve
@@ -39,7 +42,7 @@ public class introducir {
 
         if (num < 0) {
           validNum = true;
-          // Imprimir.P("Debe ingresar obligatoriamente un numero valido.");
+          auxMenus.invalidadParameter.VomitarContastante();
         } else {
           validNum = false;
         }
@@ -48,13 +51,13 @@ public class introducir {
 
         scan.nextLine();
         validNum = true;
-        // Imprimir.P("Debe ingresar obligatoriamente un numero valido.");
+        auxMenus.invalidadParameter.VomitarContastante();
 
       } catch (Exception e) {
 
         scan.nextLine();
         validNum = true;
-        // Imprimir.P("Debe ingresar obligatoriamente un numero valido.");
+        auxMenus.invalidadParameter.VomitarContastante();
 
       }
     } while (validNum);
@@ -82,7 +85,7 @@ public class introducir {
 
         if (num < 0) {
           validNum = true;
-          // Imprimir.P("Debe ingresar obligatoriamente un numero valido.");
+          auxMenus.invalidadParameter.VomitarContastante();
         } else {
           validNum = false;
         }
@@ -91,13 +94,13 @@ public class introducir {
 
         scan.nextLine();
         validNum = true;
-        // Imprimir.P("Debe ingresar obligatoriamente un numero valido.");
+        auxMenus.invalidadParameter.VomitarContastante();
 
       } catch (Exception e) {
 
         scan.nextLine();
         validNum = true;
-        // Imprimir.P("Debe ingresar obligatoriamente un numero valido.");
+        auxMenus.invalidadParameter.VomitarContastante();
 
       }
     } while (validNum);
@@ -126,7 +129,7 @@ public class introducir {
 
         if (num < 0) {
           validNum = true;
-          // Imprimir.P("Debe ingresar obligatoriamente un numero valido.");
+          auxMenus.invalidadParameter.VomitarContastante();
         } else {
           validNum = false;
         }
@@ -135,13 +138,13 @@ public class introducir {
 
         scan.nextLine();
         validNum = true;
-        // Imprimir.P("Debe ingresar obligatoriamente un numero valido.");
+        auxMenus.invalidadParameter.VomitarContastante();
 
       } catch (Exception e) {
 
         scan.nextLine();
         validNum = true;
-        // Imprimir.P("Debe ingresar obligatoriamente un numero valido.");
+        auxMenus.invalidadParameter.VomitarContastante();
 
       }
     } while (validNum);
@@ -185,13 +188,13 @@ public class introducir {
 
         if (num < 0) {
           validNum = true;
-          // Imprimir.P( "Debe ingresar obligatoriamente una edad valida.");
+          auxMenus.invalidadParameter.VomitarContastante();
         } else if (num < 16) {
           validNum = true;
-          // Imprimir.P("Debe ingresar obligatoriamente una edad valida.");
-        } else if (num > 65) {
+          auxMenus.invalidadParameter.VomitarContastante();
+        } else if (num > 99) {
           validNum = true;
-          // Imprimir.P("Debe ingresar obligatoriamente una edad valida.");
+          auxMenus.invalidadParameter.VomitarContastante();
         } else {
           validNum = false;
         }
@@ -200,13 +203,13 @@ public class introducir {
 
         scan.nextLine();
         validNum = true;
-        // Imprimir.P("Debe ingresar obligatoriamente una edad valida.");
+        auxMenus.invalidadParameter.VomitarContastante();
 
       } catch (Exception e) {
 
         scan.nextLine();
         validNum = true;
-        // Imprimir.P("Debe ingresar obligatoriamente una edad valida.");
+        auxMenus.invalidadParameter.VomitarContastante();
 
       }
     } while (validNum);
