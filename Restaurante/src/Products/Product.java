@@ -85,8 +85,8 @@ public abstract class Product implements IProduct {
       return true;
     if (obj == null)
       return false;
-    if (getClass() != obj.getClass())
-      return false;
+    //if (getClass() != obj.getClass())
+    //  return false;
     Product other = (Product) obj;
     if (name != other.name)
       return false;

@@ -71,7 +71,7 @@ public class ProductsControllerTest {
     comida1.setBundlePack(burguerBundle);
     comida2.setBundlePack(patatasBundle);
     comida3.setBundlePack(polloBundle);
-    
+    /*
     System.out.println(bebida1);
     System.out.println(bebida2);
     System.out.println(bebida3);
@@ -130,7 +130,8 @@ public class ProductsControllerTest {
     
     ProductController.modifyDrink(repositorio, "agua");
     System.out.println(bebida1);
-
+    */
+    System.out.println(bebida1.getClass());
   }
 
 }
