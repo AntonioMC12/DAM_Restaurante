@@ -1,4 +1,5 @@
 package Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import Products.Drink;
 import Products.Food;
 import Products.Product;
-import productInterfaces.IProduct;
+import Interfaces.IProduct;
 
 public class DrinkTest {
 
@@ -28,19 +29,14 @@ public class DrinkTest {
 		
 		}
 	
-	@Test 
-	public void TestAddProduct() {	
-	List<IProduct> TDrink = new ArrayList<IProduct>();
-	
-		assertEquals(TDrink.size(),0);
-		assertEquals(true, TDrink.size()==3);
-		
-	}
+
 	
 	@Test
 	public void TestIsAlcoholic(){
+		List<IProduct> bebidas = new ArrayList<IProduct>();
+		Drink d4=new Drink("cerveza", 1.50, true, bebidas);
 		
-		assertTrue(true);
+		assertTrue(d4.isAlcoholic());
 		
 	}
 	
@@ -64,13 +60,19 @@ public class DrinkTest {
 	@Test
 	public void TestAddProductBundlePack() {
 		
-		assertTrue(true);
+		Food combo = new Food();
+		
+		boolean resul=true; 
+		
+		assertTrue(resul);
 	}
 	
 	@Test
 	public void TestGetIsForCeliac() {
 		
-		assertTrue(false);
+		Drink producto = new Drink();
+		
+		assertFalse(producto.isForCeliac());
 		
 	}
 

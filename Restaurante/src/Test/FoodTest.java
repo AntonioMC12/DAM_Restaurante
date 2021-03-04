@@ -11,7 +11,7 @@ import Products.Food;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import Products.Product;
-import productInterfaces.IProduct;
+import Interfaces.IProduct;
 /*
  * @author David Ferrete
  */
@@ -38,12 +38,17 @@ public class FoodTest {
 	@Test
 	public void TestIsForVegans() {
 			
-			assertTrue(true);
+		Food vegan = new Food();
+		boolean resul=false;
+			assertEquals(resul,vegan.isForVegans());
 	}
 	
 	public void TestIsForCeliac(){
 		
-		assertTrue(false);
+		
+		Food producto = new Food();
+		
+		assertFalse(producto.isForCeliac());
 		
 	}
 	
@@ -52,15 +57,15 @@ public class FoodTest {
 	public void TestGetBundlePack(){
 	
 		List<IProduct> platos = new ArrayList<>();
-		Food f1=new Food("ensalada", 5.5, true, null);
-		Food f2=new Food("Filete con patatas",8.90, true,null);
-		Food f3=new Food("Hamburguesa",1.50, true, null);
-		Food f4=new Food("Kebab", 4.00, true, null);
+		Food f1=new Food("ensalada", 5.5, true, platos);
+		Food f2=new Food("Filete con patatas",8.90, true,platos);
+		Food f3=new Food("Hamburguesa",1.50, true, platos);
+		Food f4=new Food("Kebab", 4.00, true, platos);
 		
-		assertEquals(platos, f1);
-		assertEquals(platos, f2);
-		assertEquals(platos, f3);
-		assertEquals(platos, f4);
+		assertEquals(0,f1);
+		assertEquals(0,f2);
+		assertEquals(0,f3);
+		assertEquals(0,f4);
 
 	}
 		
@@ -80,8 +85,9 @@ public class FoodTest {
 	
 	@Test
 	public void TestIsAlcoholic() {
-		
-		assertTrue(false);
+		Drink bebAlcohol = new Drink();
+		boolean alcoholic= false;
+		assertEquals(alcoholic, bebAlcohol.isAlcoholic());
 		
 	}
 	
