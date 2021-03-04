@@ -1,9 +1,10 @@
 package Menu;
 
-import Products.Product;
+import Orders.RepositoryOrders;
 import Products.ProductController;
 import Products.RepositoryProduct;
 import UIUtils.introducir;
+import UIUtils.utilitys;
 
 /**
  * Menu que tiene las herramientas para hacer checks
@@ -13,59 +14,56 @@ import UIUtils.introducir;
  */
 public class ControllerMenu {
 
-  public static void mainMenu(RepositoryProduct repositoryProduct) {
-    if (repositoryProduct != null) {
-      
-      mainMenus.welcomeMenu.VomitarContastante();
-      try {
-        Thread.sleep(2500);
-      } catch (InterruptedException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      }
-      mainMenus.mainMenu.VomitarContastante();
-      try {
-        Thread.sleep(3500);
-      } catch (InterruptedException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      } 
-      
-      boolean valid = false;
-      int option = 0;
-      auxMenus.chooseOption.VomitarContastante();
-      while (!valid) {
-        option = introducir.getInt(null);
-        if (option > 0 && option < 6) {
-          valid = true;
-        }
-      }
+  public static void mainMenu() {
 
-      switch (option) {
-      case 1:
-        // Constantes.menuCreaPedido.VomitarConstastante();
-        break;
-      case 2:
-        menuProductos(repositoryProduct);
-        break;
-      case 3:
-        // Constantes.menuClients.VomitarContastante();
-        break;
-      case 4:
-        // Constantes.menuPedido.VomitarContastante();
-        break;
-      case 5:
-        // exit
-        break;
+    RepositoryProduct repositoryProduct = RepositoryProduct.instanceRepositoryProduct(null);
+    RepositoryOrders repositoryOrder = RepositoryOrders.getInstanceRepositoryOrders(null);
 
-      default:
-        auxMenus.invalidadParameter.VomitarContastante();
-        break;
+    mainMenus.welcomeMenu.VomitarContastante();
+
+    utilitys.espera(3000);
+
+    mainMenus.mainMenu.VomitarContastante();
+
+    utilitys.espera(3000);
+
+    boolean valid = false;
+    int option = 0;
+    auxMenus.chooseOption.VomitarContastante();
+    while (!valid) {
+      option = introducir.getInt(null);
+      if (option > 0 && option < 6) {
+        valid = true;
       }
+    }
+
+    switch (option) {
+    case 1:
+      // Constantes.menuCreaPedido.VomitarConstastante();
+      break;
+    case 2:
+      menuProductos();
+      break;
+    case 3:
+      // Constantes.menuClients.VomitarContastante();
+      break;
+    case 4:
+      // Constantes.menuPedido.VomitarContastante();
+      break;
+    case 5:
+      // exit
+      break;
+
+    default:
+      auxMenus.invalidadParameter.VomitarContastante();
+      break;
     }
   }
 
-  public static void menuProductos(RepositoryProduct repositoryProduct) {
+  public static void menuProductos() {
+
+    RepositoryProduct repositoryProduct = RepositoryProduct.instanceRepositoryProduct(null);
+
     if (repositoryProduct != null) {
       mainMenus.menuProducts.VomitarContastante();
       boolean valid = false;
@@ -83,13 +81,13 @@ public class ControllerMenu {
       case 1:
         ProductController.showProducts(repositoryProduct.getAllProducts());
         introducir.pressAnyKeyToContinue();
-        menuProductos(repositoryProduct);
+        menuProductos();
         break;
       case 2:
-        showBundleProducts(repositoryProduct);
+        ProductController.showBundleProducts(repositoryProduct);
         break;
       case 3:
-        mainMenu(repositoryProduct);
+        // mainMenu(repositoryProduct,repositoryOrder);
         break;
 
       default:
@@ -99,22 +97,46 @@ public class ControllerMenu {
     }
   }
 
-  public static void showBundleProducts(RepositoryProduct repositoryProduct) {
+  public static void menuOrder() {
 
-    if (repositoryProduct != null) {
-      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-      ProductController.showProducts(repositoryProduct.getAllProducts());
-      System.out.println("\n\n");
-      auxMenus.insertName.VomitarContastante();
-      String nombreProducto = introducir.getString(null);
-      if(repositoryProduct.searchProduct(nombreProducto) != null) {
-        ProductController.showBundlePack((Product) repositoryProduct.searchProduct(nombreProducto));
-        introducir.pressAnyKeyToContinue();
-        menuProductos(repositoryProduct);
-      }else {
-        auxMenus.invalidadParameter.VomitarContastante();
-        introducir.pressAnyKeyToContinue();
-        menuProductos(repositoryProduct);
+    RepositoryOrders repositoryOrder = RepositoryOrders.getInstanceRepositoryOrders(null);
+
+    if (repositoryOrder != null) {
+      mainMenus.menuOrders.VomitarContastante();
+      boolean valid = false;
+      int option = 0;
+      auxMenus.chooseOption.VomitarContastante();
+
+      while (!valid) {
+        option = introducir.getInt(null);
+        if (option > 0 && option < 7) {
+          valid = true;
+        }
+
+        switch (option) {
+        case 1:
+
+          break;
+        case 2:
+
+          break;
+        case 3:
+
+          break;
+        case 4:
+
+          break;
+        case 5:
+
+          break;
+        case 6:
+          // mainMenu(repositoryProduct,repositoryOrder);
+          break;
+
+        default:
+          auxMenus.invalidadParameter.VomitarContastante();
+          break;
+        }
       }
     }
   }

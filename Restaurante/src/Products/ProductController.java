@@ -3,6 +3,8 @@ package Products;
 import java.util.List;
 
 import Interfaces.IProduct;
+import Menu.auxMenus;
+import Menu.ControllerMenu;
 import UIUtils.imprimir;
 import UIUtils.introducir;
 
@@ -79,6 +81,26 @@ public class ProductController {
         if (introducir.getChar() == 'y') {
           repo.getAllDrinks().get(index).setIsAlcoholic();
         }
+      }
+    }
+  }
+  
+  public static void showBundleProducts(RepositoryProduct repositoryProduct) {
+
+    if (repositoryProduct != null) {
+      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+      ProductController.showProducts(repositoryProduct.getAllProducts());
+      System.out.println("\n\n");
+      auxMenus.insertName.VomitarContastante();
+      String nombreProducto = introducir.getString(null);
+      if(repositoryProduct.searchProduct(nombreProducto) != null) {
+        ProductController.showBundlePack((Product) repositoryProduct.searchProduct(nombreProducto));
+        introducir.pressAnyKeyToContinue();
+        ControllerMenu.menuProductos();
+      }else {
+        auxMenus.invalidadParameter.VomitarContastante();
+        introducir.pressAnyKeyToContinue();
+        ControllerMenu.menuProductos();
       }
     }
   }

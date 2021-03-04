@@ -72,7 +72,7 @@ public class MainTest {
     comida2.setBundlePack(patatasBundle);
     comida3.setBundlePack(polloBundle);    
 
-    ControllerMenu.mainMenu(repositorio);
+    ControllerMenu.mainMenu();
   }
 
 }
