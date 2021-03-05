@@ -1,5 +1,6 @@
 package Menu;
 
+import Orders.OrderController;
 import Orders.RepositoryOrders;
 import Products.ProductController;
 import Products.RepositoryProduct;
@@ -16,8 +17,8 @@ public class ControllerMenu {
 
   public static void mainMenu() {
 
-    RepositoryProduct repositoryProduct = RepositoryProduct.instanceRepositoryProduct(null);
-    RepositoryOrders repositoryOrder = RepositoryOrders.getInstanceRepositoryOrders(null);
+    //RepositoryProduct repositoryProduct = RepositoryProduct.instanceRepositoryProduct(null);
+    //RepositoryOrders repositoryOrder = RepositoryOrders.getInstanceRepositoryOrders(null);
 
     mainMenus.welcomeMenu.VomitarContastante();
 
@@ -48,7 +49,7 @@ public class ControllerMenu {
       // Constantes.menuClients.VomitarContastante();
       break;
     case 4:
-      // Constantes.menuPedido.VomitarContastante();
+      menuOrder();
       break;
     case 5:
       // exit
@@ -115,10 +116,11 @@ public class ControllerMenu {
 
         switch (option) {
         case 1:
+          OrderController.showAllInput(repositoryOrder.getAllInput());
 
           break;
         case 2:
-
+          OrderController.printNotPayed(repositoryOrder.getOrdersNoPayed());
           break;
         case 3:
 

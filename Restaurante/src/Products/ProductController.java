@@ -5,7 +5,6 @@ import java.util.List;
 import Interfaces.IProduct;
 import Menu.auxMenus;
 import Menu.ControllerMenu;
-import UIUtils.imprimir;
 import UIUtils.introducir;
 
 public class ProductController {
@@ -16,7 +15,7 @@ public class ProductController {
      * SYSO EN ASCII "PRODUCTOS DISPONIBLES"
      * 
      */
-    imprimir.printList(productos);
+    printListProduct(productos);
   }
 
   public static void showBundlePack(Product producto) {
@@ -24,7 +23,7 @@ public class ProductController {
      * SYSO EN ASCII "PRODUCTOS COMPATIBLES PARA OFERTA "
      * 
      */
-    imprimir.printList(producto.getBundlePack());
+    printListProduct(producto.getBundlePack());
   }
 
   public static void modifyFood(RepositoryProduct repo, String nombre) {
@@ -101,6 +100,19 @@ public class ProductController {
         auxMenus.invalidadParameter.VomitarContastante();
         introducir.pressAnyKeyToContinue();
         ControllerMenu.menuProductos();
+      }
+    }
+  }
+  
+  public static void printListProduct(List<IProduct> lista) {
+    int count = 0;
+    if (lista != null && lista.size() > 0) {
+      for (IProduct object : lista) {
+        if(count!=0) {
+          System.out.print(", ");
+        }
+        System.out.print(object.getName());
+        count++;
       }
     }
   }
