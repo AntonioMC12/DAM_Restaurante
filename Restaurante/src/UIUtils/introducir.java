@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import Menu.auxMenus;
 
-
 public class introducir {
   /**
    * Método que recoje un char por teclado y lo devuelve
@@ -215,5 +214,19 @@ public class introducir {
     } while (validNum);
 
     return num;
+  }
+
+  static public void pressAnyKeyToContinue() {
+
+    String seguir;
+    Scanner teclado = new Scanner(System.in);
+    System.out.println("\n\n");
+    System.out.println("Press Enter key to continue...");
+
+    try {
+      seguir = teclado.nextLine();
+    } catch (Exception e) {
+      auxMenus.invalidadParameter.VomitarContastante();
+    }
   }
 }

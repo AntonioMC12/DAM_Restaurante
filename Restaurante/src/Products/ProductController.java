@@ -3,7 +3,8 @@ package Products;
 import java.util.List;
 
 import Interfaces.IProduct;
-import UIUtils.imprimir;
+import Menu.auxMenus;
+import Menu.ControllerMenu;
 import UIUtils.introducir;
 
 public class ProductController {
@@ -14,7 +15,7 @@ public class ProductController {
      * SYSO EN ASCII "PRODUCTOS DISPONIBLES"
      * 
      */
-    imprimir.printList(productos);
+    printListProduct(productos);
   }
 
   public static void showBundlePack(Product producto) {
@@ -22,7 +23,7 @@ public class ProductController {
      * SYSO EN ASCII "PRODUCTOS COMPATIBLES PARA OFERTA "
      * 
      */
-    imprimir.printList(producto.getBundlePack());
+    printListProduct(producto.getBundlePack());
   }
 
   public static void modifyFood(RepositoryProduct repo, String nombre) {
@@ -79,6 +80,39 @@ public class ProductController {
         if (introducir.getChar() == 'y') {
           repo.getAllDrinks().get(index).setIsAlcoholic();
         }
+      }
+    }
+  }
+  
+  public static void showBundleProducts(RepositoryProduct repositoryProduct) {
+
+    if (repositoryProduct != null) {
+      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+      ProductController.showProducts(repositoryProduct.getAllProducts());
+      System.out.println("\n\n");
+      auxMenus.insertName.VomitarContastante();
+      String nombreProducto = introducir.getString(null);
+      if(repositoryProduct.searchProduct(nombreProducto) != null) {
+        ProductController.showBundlePack((Product) repositoryProduct.searchProduct(nombreProducto));
+        introducir.pressAnyKeyToContinue();
+        ControllerMenu.menuProductos();
+      }else {
+        auxMenus.invalidadParameter.VomitarContastante();
+        introducir.pressAnyKeyToContinue();
+        ControllerMenu.menuProductos();
+      }
+    }
+  }
+  
+  public static void printListProduct(List<IProduct> lista) {
+    int count = 0;
+    if (lista != null && lista.size() > 0) {
+      for (IProduct object : lista) {
+        if(count!=0) {
+          System.out.print(", ");
+        }
+        System.out.print(object.getName());
+        count++;
       }
     }
   }
