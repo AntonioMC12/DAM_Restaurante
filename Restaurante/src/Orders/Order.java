@@ -48,7 +48,7 @@ public class Order implements IOrder {
     this.payed = payed;
   }
 
-  public Client getclient() {
+public Client getclient() {
     return client;
   }
 

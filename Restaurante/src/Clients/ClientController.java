@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import Interfaces.IClient;
 import Interfaces.IPerson;
+import Orders.Order;
 import Products.Food;
 import UIUtils.introducir;
 
@@ -14,18 +15,23 @@ public class ClientController {
 
 		printListClient(Clientes);
 	}
-
-	public static void createClient(Client Cliente) {
+	public static void createClient(RepositoryClients repo) {
 		Scanner sc = new Scanner(System.in);
-		String name,address,dni;
-		int edad;
-		
-		if(Cliente != null ) {
-			
-			Client dummy  = new Client();
-			
-		}
-
+		String dni = sc.next();		
+		Client dummy = new Client(dni);
+		if(!repo.getAllClients().contains(dummy)) {
+			repo.addClient(dummy);
+		}		
+	}
+	public static void orderByClient(RepositoryClients repo) {
+		Scanner sc = new Scanner(System.in);
+		String nombre = sc.next();
+		if (nombre != null && repo != null) {
+			Client dummy = new Client(nombre);
+			if (repo.getAllClients().contains(dummy)) {
+				System.out.println(dummy.getOrders());
+			}
+		}	
 	}
 
 	public static void modifyClient(RepositoryClients repo) {

@@ -3,6 +3,10 @@ package Main;
 import java.util.ArrayList;
 import java.util.List;
 
+import Clients.Client;
+import Clients.RepositoryClients;
+import Interfaces.IClient;
+import Interfaces.IOrder;
 import Interfaces.IProduct;
 import Menu.ControllerMenu;
 import Products.Drink;
@@ -71,7 +75,22 @@ public class MainTest {
     comida1.setBundlePack(burguerBundle);
     comida2.setBundlePack(patatasBundle);
     comida3.setBundlePack(polloBundle);    
+    
+    List<String> direccion = new ArrayList<>();
+	List<IOrder> orders = new ArrayList<>();
+	List<IClient> clientes= new ArrayList<>();
 
+	Client Cliente1 = new Client("45942597M","Miguel",25,direccion,orders,150);
+	Client Cliente2 = new Client("45942565M","Paco",21,direccion,orders,180);
+	Client Cliente3 = new Client("45942523M","Marcos",27,direccion,orders,200);
+	
+	 List<IClient> repositorioDummyClientes = new ArrayList<>();
+	 repositorioDummyClientes.add(Cliente1);
+	 repositorioDummyClientes.add(Cliente2);
+	 repositorioDummyClientes.add(Cliente3);
+	 
+	 RepositoryClients repositorioClientes = RepositoryClients.getInstanceRepositoryClient(repositorioDummyClientes);
+	 
     ControllerMenu.mainMenu();
   }
 

@@ -10,7 +10,6 @@ import Products.ProductController;
 import Products.RepositoryProduct;
 import UIUtils.introducir;
 import UIUtils.utilitys;
-import sun.rmi.runtime.NewThreadAction;
 
 /**
  * Menu que tiene las herramientas para hacer checks
@@ -125,7 +124,7 @@ public class ControllerMenu {
 					menuClients();
 					break;
 				case 2:
-					
+					//ClientController.
 					break;
 				case 3:
 					//ClientController.createClient(null);

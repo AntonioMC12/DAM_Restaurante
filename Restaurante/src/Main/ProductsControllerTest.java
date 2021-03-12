@@ -22,20 +22,20 @@ public class ProductsControllerTest {
 	
 	// Repo de productos para probar el controller de Clientes.
 		
-	List<String> direccion = new ArrayList<>();
-	List<IOrder> orders = new ArrayList<>();
-	List<IClient> clientes= new ArrayList<>();
+		List<String> direccion = new ArrayList<>();
+		List<IOrder> orders = new ArrayList<>();
+		List<IClient> clientes= new ArrayList<>();
 
-	Client Cliente1 = new Client("45942597M","Miguel",25,direccion,orders,150);
-	Client Cliente2 = new Client("45942565M","Paco",21,direccion,orders,180);
-	Client Cliente3 = new Client("45942523M","Marcos",27,direccion,orders,200);
-	
-	 List<IClient> repositorioDummyClientes = new ArrayList<>();
-	 repositorioDummyClientes.add(Cliente1);
-	 repositorioDummyClientes.add(Cliente2);
-	 repositorioDummyClientes.add(Cliente3);
-	 
-	 RepositoryClients repositorioClientes = RepositoryClients.getInstanceRepositoryClient(repositorioDummyClientes);
+		Client Cliente1 = new Client("45942597M","Miguel",25,direccion,orders,150);
+		Client Cliente2 = new Client("45942565M","Paco",21,direccion,orders,180);
+		Client Cliente3 = new Client("45942523M","Marcos",27,direccion,orders,200);
+		
+		 List<IClient> repositorioDummyClientes = new ArrayList<>();
+		 repositorioDummyClientes.add(Cliente1);
+		 repositorioDummyClientes.add(Cliente2);
+		 repositorioDummyClientes.add(Cliente3);
+		 
+		 RepositoryClients repositorioClientes = RepositoryClients.getInstanceRepositoryClient(repositorioDummyClientes);
 	 
     //voy a crear un repo de productos para probar el controller de product
     
@@ -178,7 +178,7 @@ public class ProductsControllerTest {
     ProductController.modifyDrink(repositorio, "agua");
     System.out.println(bebida1);
     */
-    System.out.println(bebida1.getClass());
+    
   }
 
 }
