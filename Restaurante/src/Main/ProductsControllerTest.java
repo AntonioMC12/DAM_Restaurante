@@ -3,16 +3,40 @@ package Main;
 import java.util.ArrayList;
 import java.util.List;
 
+import Clients.Client;
+import Clients.RepositoryClients;
+import Interfaces.IClient;
+import Interfaces.IOrder;
 import Interfaces.IProduct;
+import Orders.Order;
+import Orders.RepositoryOrders;
 import Products.Drink;
 import Products.Food;
+import Products.Product;
 import Products.ProductController;
 import Products.RepositoryProduct;
 
 public class ProductsControllerTest {
 
-  public static void main(String[] args) {
-   
+	public static void main(String[] args) {
+	
+	// Repo de productos para probar el controller de Clientes.
+		
+	List<String> direccion = new ArrayList<>();
+	List<IOrder> orders = new ArrayList<>();
+	List<IClient> clientes= new ArrayList<>();
+
+	Client Cliente1 = new Client("45942597M","Miguel",25,direccion,orders,150);
+	Client Cliente2 = new Client("45942565M","Paco",21,direccion,orders,180);
+	Client Cliente3 = new Client("45942523M","Marcos",27,direccion,orders,200);
+	
+	 List<IClient> repositorioDummyClientes = new ArrayList<>();
+	 repositorioDummyClientes.add(Cliente1);
+	 repositorioDummyClientes.add(Cliente2);
+	 repositorioDummyClientes.add(Cliente3);
+	 
+	 RepositoryClients repositorioClientes = RepositoryClients.getInstanceRepositoryClient(repositorioDummyClientes);
+	 
     //voy a crear un repo de productos para probar el controller de product
     
     List<IProduct> aguaBundle = new ArrayList<>();
@@ -71,6 +95,29 @@ public class ProductsControllerTest {
     comida1.setBundlePack(burguerBundle);
     comida2.setBundlePack(patatasBundle);
     comida3.setBundlePack(polloBundle);
+    
+
+	//Repo de Orders para probar el controller de Pedidos.
+
+    List<Product> repositorioDummyPedidos = new ArrayList<>();
+    repositorioDummy.add(comida3);
+    repositorioDummy.add(comida2);
+    repositorioDummy.add(comida1);
+    repositorioDummy.add(bebida1);
+    repositorioDummy.add(bebida2);
+    repositorioDummy.add(bebida3);
+    
+	Order order1 = new Order(Cliente1, repositorioDummyPedidos, 10, null, "machaquito 26 6/4", true, false);
+	Order order2 = new Order(Cliente2, repositorioDummyPedidos, 29, null, "largartijo 12 6/4", true, false);
+	Order order3 = new Order(Cliente3,  repositorioDummyPedidos, 40, null, "ronda de tejares 26 6/4", true, false);
+	
+	List<IOrder> repositorioDummyOrders = new ArrayList<>();
+	 repositorioDummyOrders.add(order1);
+	 repositorioDummyOrders.add(order2);
+	 repositorioDummyOrders.add(order3);
+	 
+	RepositoryOrders repositorioPedidos = RepositoryOrders.getInstanceRepositoryOrders(repositorioDummyOrders);
+	
     /*
     System.out.println(bebida1);
     System.out.println(bebida2);
