@@ -10,14 +10,20 @@ import UIUtils.introducir;
 
 public class ClientController {
 	// Llamada al metodo de mostrar clientes.
-	public static void ShowClients(List<Client> Clientes) {
+	public static void ShowClients(List<IClient> Clientes) {
 
 		printListClient(Clientes);
 	}
 
 	public static void createClient(Client Cliente) {
+		Scanner sc = new Scanner(System.in);
+		String name,address,dni;
+		int edad;
+		
 		if(Cliente != null ) {
-			Client dummy  = new Client
+			
+			Client dummy  = new Client();
+			
 		}
 
 	}
@@ -50,10 +56,17 @@ public class ClientController {
 		}
 	}
 
-	public static void ShowPoints() {
-		
+	public static void ShowPoints(RepositoryClients repo) {
+		Scanner sc = new Scanner(System.in);
+		String nombre = sc.next();
+		if (nombre != null && repo != null) {
+			Client dummy = new Client(nombre);
+			if (repo.getAllClients().contains(dummy)) {
+				System.out.println(dummy.getPoints());
+			}
+	
+		}
 	}
-
 	public static void ClientsAddress(List<IClient> address) {
 		printListClient(address);
 	}
@@ -84,15 +97,12 @@ public class ClientController {
 	 * @param list
 	 */
 	public static void printListAddress(List<IClient> list) {
+		Scanner sc = new Scanner(System.in);
+		String nombre = sc.next();
+		IClient dummy = new Client(nombre);
 		int count = 0;
-		if (list != null && list.size() > 0) {
-			for (IClient object : list) {
-				if (count != 0) {
-					System.out.print(", ");
-				}
-				System.out.print(object.getAddress());
-				count++;
+		if (list != null && list.size() > 0 && list.contains(dummy)) {
+			System.out.print(dummy.getAddress());
 			}
 		}
-	}
 }
