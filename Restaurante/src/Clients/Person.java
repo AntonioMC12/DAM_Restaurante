@@ -1,12 +1,14 @@
 package Clients;
 
+import Interfaces.IPerson;
+
 /**
  * Clase principal de la que hereda cliente.
  * 
  * @author Abepuoh
  *
  */
-public class Person {
+public class Person implements IPerson{
 
   private String dni;
   private String name;
@@ -46,6 +48,24 @@ public class Person {
     } else if (!dni.equals(other.dni))
       return false;
     return true;
+  }
+
+  @Override
+  public void setName(String name) {
+    this.name = name;
+    
+  }
+
+  @Override
+  public void setDni(String dni) {
+    this.dni = dni;
+    
+  }
+
+  @Override
+  public void setAge(int age) {
+    this.age = age;
+    
   }
   
   

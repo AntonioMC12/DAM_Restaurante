@@ -73,8 +73,8 @@ public class RepositoryClients implements IRepositoryClients {
 
   @Override
   public boolean updateClient(IClient cliente) {
-    //falta por implementar. Se hará mas adelante.
-    return false;
+    ClientController.modifyClient(createRepository);
+    return true;
   }
 
   @Override

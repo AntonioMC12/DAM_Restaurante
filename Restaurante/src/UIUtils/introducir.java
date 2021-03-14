@@ -1,5 +1,7 @@
 package UIUtils;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -162,7 +164,7 @@ public class introducir {
     Scanner scan = new Scanner(System.in);
     String value;
 
-    // Imprimir.p(text);
+    System.out.println(text);
     value = scan.next();
 
     return value;
@@ -182,7 +184,7 @@ public class introducir {
 
     do {
       try {
-        // Imprimir.p(text);
+        System.out.println(text);
         num = scan.nextInt();
 
         if (num < 0) {
@@ -228,5 +230,33 @@ public class introducir {
     } catch (Exception e) {
       auxMenus.invalidadParameter.VomitarContastante();
     }
+  }
+
+  public static LocalDateTime getDate() {
+    boolean valid = false;
+    String date = "";
+    LocalDateTime dateTime = null;
+    while (!valid) {
+      date = introducir.getString("Inserte la fecha siguiendo el siguiente patrón: YYYY-MM-DD HH:mm:ss");
+      if (date.matches("\\d{4}-[1-12]-[1-31] \\d{2}:\\d{2}:\\d{2}")) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        dateTime = LocalDateTime.parse(date, formatter);
+      }
+    }
+    return dateTime;
+  }
+  
+  public static String getDni() {
+    boolean valid = false;
+    String dni = "";
+    while(!valid) {
+      dni = getString(Menu.auxMenus.insertDni.getConstante());
+      if(!utilitys.validarNIF(dni)) {
+        Menu.auxMenus.invalidadParameter.VomitarContastante();
+      }else {
+        valid = true;
+      }
+    }
+    return dni;
   }
 }

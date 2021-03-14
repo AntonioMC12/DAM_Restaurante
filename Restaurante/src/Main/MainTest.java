@@ -3,6 +3,10 @@ package Main;
 import java.util.ArrayList;
 import java.util.List;
 
+import Clients.Client;
+import Clients.RepositoryClients;
+import Interfaces.IClient;
+import Interfaces.IOrder;
 import Interfaces.IProduct;
 import Menu.ControllerMenu;
 import Products.Drink;
@@ -12,8 +16,8 @@ import Products.RepositoryProduct;
 public class MainTest {
 
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
     
+    //Creación de productos y sus bundles
 
     List<IProduct> aguaBundle = new ArrayList<>();
     List<IProduct> fantaBundle = new ArrayList<>();
@@ -71,7 +75,29 @@ public class MainTest {
     comida1.setBundlePack(burguerBundle);
     comida2.setBundlePack(patatasBundle);
     comida3.setBundlePack(polloBundle);    
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    //Creacion de clientes
+    List<String> direcciones1 = new ArrayList<>();
+    direcciones1.add("c/ Obispo Cubero");
+    List<String> direcciones2 = new ArrayList<>();
+    direcciones2.add("c/ Juanita la larga");
+    
+    Client cliente1 = new Client("26824204V", "Antonio", 22, direcciones1, null, 0);
+    Client cliente2 = new Client("12345678A", "Sample", 18, direcciones2, null, 0);
+    
+    List<IClient> clientsDummy = new ArrayList<>();
+    clientsDummy.add(cliente1);
+    clientsDummy.add(cliente2);
+    
+    RepositoryClients repositoryClients = RepositoryClients.getInstanceRepositoryClient(clientsDummy);
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    //Creacion de pedidos
+    
+    
     ControllerMenu.mainMenu();
   }
 

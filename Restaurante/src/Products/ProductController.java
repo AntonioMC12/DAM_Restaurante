@@ -37,11 +37,11 @@ public class ProductController {
 
         System.out.println("¿Quiere modificar el nombre? y/n");
         if (introducir.getChar() == 'y') {
-          repo.getAllFoods().get(index).setName(introducir.getString("Introduzca su nuevo nombre: "));
+          repo.getAllFoods().get(index).setName(introducir.getString(Menu.auxMenus.insertName.getConstante()));
         }
         System.out.println("¿Quiere modificar el precio? y/n");
         if (introducir.getChar() == 'y') {
-          repo.getAllFoods().get(index).setPrice(introducir.getDouble("Introduzca su nuevo precio: "));
+          repo.getAllFoods().get(index).setPrice(introducir.getDouble(Menu.auxMenus.insertPrice.getConstante()));
         }
         System.out.println("¿Quiere modificar el estado de Celiaco? y/n");
         if (introducir.getChar() == 'y') {
@@ -66,7 +66,7 @@ public class ProductController {
 
         System.out.println("¿Quiere modificar el nombre? y/n");
         if (introducir.getChar() == 'y') {
-          repo.getAllDrinks().get(index).setName(introducir.getString("Introduzca su nuevo nombre: "));
+          repo.getAllDrinks().get(index).setName(introducir.getString(Menu.auxMenus.insertName.getConstante()));
         }
         System.out.println("¿Quiere modificar el precio? y/n");
         if (introducir.getChar() == 'y') {

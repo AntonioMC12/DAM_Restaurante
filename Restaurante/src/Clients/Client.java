@@ -95,5 +95,4 @@ public class Client extends Person implements IClient {
 
     return this.points;
   }
-
 }
