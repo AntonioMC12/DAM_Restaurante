@@ -63,7 +63,7 @@ También hemos de destacar que existe un bug no resuelto a la hora de calcular e
 
 **Miguel Ángel García Mérida**
 
-- <https://github.com/ErTonix12>
+- <https://github.com/Abepuoh>
 
 **Antonio Muñoz Cubero**
 
