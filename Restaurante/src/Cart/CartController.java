@@ -7,16 +7,21 @@ import Products.Product;
 import Products.ProductController;
 import Products.RepositoryProduct;
 import UIUtils.introducir;
-
+/**
+ * Controller del carrito usado para la gestion de los submenus
+ * @author garci
+ *
+ */
 public class CartController {
 
-  /**
-   * Clase que devuelve el producto que desea pedir el consumidor
-   * El producto se busca en el repositorio de productos.
-   * @return producto a pedir
-   * @throws NullPointerException
-   */
+  
   public static Product addProduct() throws NullPointerException {
+	  /**
+	   * Clase que devuelve el producto que desea pedir el consumidor
+	   * El producto se busca en el repositorio de productos.
+	   * @return producto a pedir
+	   * @throws NullPointerException
+	   */
     boolean valid = false;
     String name = "";
     RepositoryProduct repositorio = RepositoryProduct.instanceRepositoryProduct(null);
@@ -34,6 +39,11 @@ public class CartController {
   }
   
   public static Product deleteProduct() throws NullPointerException {
+	  /**
+	   * Metodo que borra un producto del repositorio introducido por un nombre.
+	   * @return el producto eliminado
+	   * @throws NullPointerException
+	   */
     boolean valid = false;
     String name = "";
     RepositoryProduct repositorio = RepositoryProduct.instanceRepositoryProduct(null);

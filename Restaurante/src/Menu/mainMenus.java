@@ -1,6 +1,12 @@
 package Menu;
 
 public enum mainMenus {
+	/**
+	 * Clase Enum que contiene los menus principales mas importantes solo tiene impacto visual y
+	 * solamente haremos una llamada a los mismos.
+	 * @author garci
+	 *
+	 */
 	menuProducts("\r\n"
 			+ "█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\r\n"
 			+ "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██\r\n"

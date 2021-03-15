@@ -10,7 +10,11 @@ import java.util.List;
 import Interfaces.IClient;
 import Interfaces.IOrder;
 import Interfaces.IRepositoryOrders;
-
+/**
+ * Repositorio de pedidos
+ * @author Abe
+ *
+ */
 public class RepositoryOrders implements IRepositoryOrders {
 
   private List<IOrder> orders;
@@ -26,8 +30,9 @@ public class RepositoryOrders implements IRepositoryOrders {
     this.orders = orders;
   }
 
-    
+  
   public static RepositoryOrders getInstanceRepositoryOrders(List<IOrder>orders) {
+	//Singleton del repostorio
 	  if(createRepository==null) {
 		  createRepository=new RepositoryOrders(orders);
 	  }

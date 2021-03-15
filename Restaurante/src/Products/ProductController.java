@@ -85,7 +85,9 @@ public class ProductController {
   }
   
   public static void showBundleProducts(RepositoryProduct repositoryProduct) {
-
+	  /**
+	   * Muestra el bundle de los productos
+	   */
     if (repositoryProduct != null) {
       System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
       ProductController.showProducts(repositoryProduct.getAllProducts());
@@ -105,6 +107,9 @@ public class ProductController {
   }
   
   public static void printListProduct(List<IProduct> lista) {
+	  /**
+	   * Muesta por pantalla la lista de productos 
+	   */
     int count = 0;
     if (lista != null && lista.size() > 0) {
       for (IProduct object : lista) {

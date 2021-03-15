@@ -1,7 +1,10 @@
 package Interfaces;
 
 import java.util.List;
-
+/**
+ * Interfaz de productos la cual usaremos para
+ *  recordar que metodos tenemos que implementar en nuestra clase.
+ */
 public interface IProduct {
   
   /**

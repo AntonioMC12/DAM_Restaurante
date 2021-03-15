@@ -18,7 +18,10 @@ import UIUtils.introducir;
 import UIUtils.utilitys;
 
 public class ControllerMenu {
-
+	/**
+	 * Main menu desde el cual llamaremos a los diferentes sub-menus,
+	 *  solo tiene un uso organizativo para hacer todo mas sencillo.
+	 */
   public static void mainMenu() {
 
     mainMenus.welcomeMenu.VomitarContastante();
@@ -63,7 +66,10 @@ public class ControllerMenu {
       break;
     }
   }
-
+  /**
+   * Submenu de productos desde el cual se llamara al controller
+   *  que realizará todas las operaciones
+   */
   public static void menuProductos() {
 
     RepositoryProduct repositoryProduct = RepositoryProduct.instanceRepositoryProduct(null);
@@ -104,7 +110,10 @@ public class ControllerMenu {
       }
     }
   }
-
+  /**
+   * Submenu de clientes desde el cual se llamara al controller
+   *  que realizará todas las operaciones
+   */
   public static void menuClients() {
 
     RepositoryClients repositoryClients = RepositoryClients.getInstanceRepositoryClient(null);
@@ -164,7 +173,10 @@ public class ControllerMenu {
       }
     }
   }
-
+  /**
+   * Submenu de pedidos desde el cual se llamara al controller
+   *  que realizará todas las operaciones
+   */
   public static void menuOrder() {
 
     RepositoryOrders repositoryOrder = RepositoryOrders.getInstanceRepositoryOrders(null);
@@ -221,7 +233,10 @@ public class ControllerMenu {
       }
     }
   }
-
+  /**
+   * Submenu de crear pedido desde el cual se llamara al controller
+   *  que realizará todas las operaciones
+   */
   public static void menuCrearPedido() {
 
     RepositoryClients repositoryClients = RepositoryClients.getInstanceRepositoryClient(null);
@@ -267,7 +282,10 @@ public class ControllerMenu {
       break;
     }
   }
-
+  /**
+   * Submenu de carrito desde el cual se llamara al controller
+   *  que realizará todas las operaciones
+   */
   public static void menuCarrito(Client cliente) {
 
     RepositoryProduct products = RepositoryProduct.instanceRepositoryProduct(null);
@@ -333,7 +351,11 @@ public class ControllerMenu {
       break;
     }
   }
-
+  /**
+   * Submenu llamado menuEntrega que recibe un carrito y
+   *  desde el cual se llamara al controller
+   *  que realizará todas las operaciones
+   */
   public static void menuEntrega(Cart carrito) {
 
     boolean valid = false;
@@ -373,7 +395,10 @@ public class ControllerMenu {
       break;
     }
   }
-
+  /**
+   * Submenu que crea un pedido a domicilio y desde el cual se crea.
+   * @param carrito
+   */
   public static void menuDomicilio(Cart carrito) {
     boolean valid = false;
     int option = 0;

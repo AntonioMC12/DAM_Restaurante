@@ -87,7 +87,7 @@ public class Order implements IOrder {
   public void setDelivered(boolean delivered) {
     this.delivered = delivered;
   }
-
+  
   public void setPayed(boolean payed) {
     this.payed = payed;
   }

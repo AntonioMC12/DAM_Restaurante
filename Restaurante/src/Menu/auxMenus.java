@@ -1,6 +1,12 @@
 package Menu;
 
 public enum auxMenus {
+	/**
+	 * Clase Enum que usaremos para usar los parametros 
+	 * auxiliares en nuestro proyecto solo tiene impacto a nivel visual.
+	 * @author Abe
+	 *
+	 */
 	invalidadParameter("\r\n"
 			+ "██████████████████████████████████████████████████████████████████████████████████████████████████████████████\r\n"
 			+ "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██\r\n"

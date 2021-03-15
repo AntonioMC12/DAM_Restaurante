@@ -31,6 +31,11 @@ public class RepositoryClients implements IRepositoryClients {
   }
   
   public static RepositoryClients getInstanceRepositoryClient(List<IClient>clients) {
+	  /**
+	   * Singleton de Clientes
+	   * @param clients
+	   * @return el repositorio creado
+	   */
 	  if(createRepository==null) {
 		  createRepository=new RepositoryClients(clients);
 	  }
