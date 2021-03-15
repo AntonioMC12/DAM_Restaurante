@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/ErTonix12/DAM_Restaurante">
-    <img src="https://siles.es/wp-content/uploads/2020/06/CARTA-6-copia.jpg" alt="Telepollo" width=72 height=72>
+    <img src="https://siles.es/wp-content/uploads/2020/06/CARTA-6-copia.jpg" alt="Telepollo" width=92 height=92>
   </a>
 
   <h3 align="center">Telepollo</h3>
